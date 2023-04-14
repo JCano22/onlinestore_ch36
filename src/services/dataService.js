@@ -115,4 +115,11 @@ let catalog = [
 
 ];
 
-export default catalog;
+class DataService{
+
+    getProducts(){
+        return catalog;
+    }
+
+}
+export default DataService;
