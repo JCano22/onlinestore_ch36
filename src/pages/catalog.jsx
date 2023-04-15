@@ -29,10 +29,12 @@ const Catalog = () => {
     
     return (
     <div className='page catalog'>
-        <h2>Check our amazing catalog!</h2>
-        <h5>we have {products.length} Products for you!!</h5>
+        <div>
+            <h2>Check our amazing catalog!</h2>
+            <h5>we have {products.length} Products for you!!</h5>
 
-        <button onClick={magicTest} className="btn">Magic</button>
+            <button onClick={magicTest} className="btn">Magic</button>
+        </div>
         
         {products.map(p => <Product data={p}/>)}
         

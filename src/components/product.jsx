@@ -4,7 +4,6 @@ import {useEffect} from 'react';
 
 
 
-
 function Product(props){
     useEffect(function (){
         //when the component loads
@@ -14,7 +13,7 @@ function Product(props){
 
     return (
         <div className="product">
-            <img src="https://picsum.photos/220/180" alt="picture"></img>
+            <img src={props.data.image} alt="picture"></img>
             <h5>{props.data.title}</h5>
 
             <div className="priceTotal">
