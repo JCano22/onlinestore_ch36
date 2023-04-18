@@ -1,3 +1,6 @@
 .catalog{
     background-color: azure;
 }
+div .btn-sm{
+    margin: 20px 10px;
+}

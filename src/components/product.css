@@ -7,8 +7,11 @@
     min-height: 320px;
     border-radius: 5px;
 }
+@media(max-width: 400px){
+
+}
 .product:hover{
-    border-color: coral;
+    border-color: rgb(229, 101, 14);
 }
 .product img{
     width: 220px;

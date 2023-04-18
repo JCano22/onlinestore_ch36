@@ -7,9 +7,14 @@ const Catalog = () => {
 
     const [products, setProducts] = useState([]);
 
+    const [category, setCategory] = useState([]);
+
+    const [prodsToDisplay, setProdsToDisplay] = useState([]);
+
     useEffect(function (){
         console.log("catalog loaded");
         loadCatalog();
+        
     },[]);
 
     function loadCatalog(){
@@ -18,13 +23,28 @@ const Catalog = () => {
         let prods = service.getProducts();
         console.log(prods);
         setProducts(prods);
+
+        //calling function with all prods to display all when page loads
+        setProdsToDisplay(prods);
+        
+        let cats =["Appetizers", "Dogs", "Burgers", "Entrees"];
+        setCategory(cats);
     }
 
-        //when clicked, call a test function
-        //with console.log message
-    function magicTest(){
-        console.log("hello form the button that we created");
-        setProducts([]); //clear the array of products
+    function filter(category){
+        console.log(category);
+
+        let list = [];
+
+        for (let i = 0; i < products.length; i++){
+            let prod = products[i];
+            if(prod.category === category){
+                list.push(prod);
+            }
+        }
+        //sending list array to prodsToDisplay const state var
+        setProdsToDisplay(list);
+
     }
     
     return (
@@ -33,10 +53,13 @@ const Catalog = () => {
             <h2>Check our amazing catalog!</h2>
             <h5>we have {products.length} Products for you!!</h5>
 
-            <button onClick={magicTest} className="btn">Magic</button>
+            <button className="btn btn-sm" onClick={() => loadCatalog()}>Full Menu</button>
+            {category.map(c => <button key={c} onClick={() => filter(c)}className="btn btn-sm btn-filter">{c}</button>)}
+            
         </div>
         
-        {products.map(p => <Product data={p}/>)}
+        
+        {prodsToDisplay.map(p =>  <Product key={p._id} data={p}/>)}
         
         
     </div>
