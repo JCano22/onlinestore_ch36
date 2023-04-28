@@ -39,8 +39,9 @@
 
 .container-fluid{
   min-height: calc(100vh - 135px);
+  padding: 0 !important;
 }
 
 .page{
-  min-height: calc(100vh - 151px);
+  min-height: calc(100vh - 135px);
 }

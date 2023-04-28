@@ -1,0 +1,24 @@
+.adminCont{
+    padding-top: 20px;
+}
+.adminCont .parent{
+    display: flex;
+    justify-content: center;
+}
+.adminCont #productsForm{
+    text-align: left;
+    padding: 20px 30px;
+}
+.adminCont #productsForm{
+    flex: auto;
+
+}
+.admin #secCoupons{
+    flex:auto;
+}
+
+.adminCont #productsForm{
+    border: 1px solid #333;
+    border-radius: 4px;
+    max-width: 400px;
+}
