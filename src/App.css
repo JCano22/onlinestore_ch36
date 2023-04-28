@@ -1,6 +1,8 @@
 .App {
   text-align: center;
+  
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -38,10 +40,12 @@
 }
 
 .container-fluid{
-  min-height: calc(100vh - 135px);
+  min-height: calc(100vh - 116px);
   padding: 0 !important;
 }
 
 .page{
-  min-height: calc(100vh - 135px);
+  min-height: calc(100vh - 116px);
+  color: white;
+  background-color: black !important;
 }

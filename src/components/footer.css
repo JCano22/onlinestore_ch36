@@ -1,12 +1,13 @@
 .footer{
-    border-top: 1px solid #6a6a6a;
-    background-color: #e7e7e8;
+    border-top: 1px solid white;
+    background-color: rgb(39, 38, 38);
     padding: 10px 10px 20px 10px;
     text-align: center;
+    height: 100vh - 630px;
 }
 .footer h6{
     text-align: center;
-    color: #333;
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     font-size: 18px;

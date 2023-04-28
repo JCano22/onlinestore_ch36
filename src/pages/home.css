@@ -1,10 +1,23 @@
 *{
     padding: 0;
     margin: 0;
+    color: white;
+    
 
 }
 .homeCont{
-    background-color: #e0cccc;
+    background-repeat: no-repeat;
+    background-image: url(http://voguetavern.com/wp-content/uploads/2019/08/tatv-home-bg.jpg);
+    background-size:cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
 }
 .homeCont h2{
