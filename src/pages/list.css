@@ -1,0 +1,18 @@
+.listCont{
+    padding-top: 45px;
+    color: white;
+    margin: auto;
+
+
+}
+.listField{
+    width: 400px;
+    margin: auto;
+}
+.listField input{
+    margin: 15px 0;
+
+}
+.items-list{
+    margin: auto;
+}

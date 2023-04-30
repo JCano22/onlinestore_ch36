@@ -1,10 +1,12 @@
 .adminCont{
     padding-top: 20px;
 
+
 }
 .adminCont .parent{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+
 }
 .adminCont #productsForm{
     text-align: left;

@@ -40,6 +40,11 @@ function NavBar() {
                 Admin
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/list">
+                My List
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

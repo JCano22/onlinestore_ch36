@@ -3,6 +3,9 @@ import { useState } from "react";
 
 function Admin() {
   const [product, setProduct] = useState({});
+  const [allProducts, setAllProducts] = useState([]);
+  const [coupon, setCoupon] = useState({});
+  const [allCoupons, setAllCoupons] = useState([]);
 
   function handleProductText(e) {
     const text = e.target.value;
@@ -17,7 +20,32 @@ function Admin() {
   }
 
   function saveProduct() {
-    console.log(product);
+    //create copy of state variable, modify the copy, send the copy back
+    let copy = [...allProducts];
+    copy.push(product);
+    setAllProducts(copy);
+
+    console.log(copy);
+  }
+
+  function handleCouponText(e) {
+    const code = e.target.value;
+    const name = e.target.name;
+
+    let copy = { ...coupon };
+    copy[name] = code;
+    setCoupon(copy);
+
+    console.log(code, name);
+  }
+  function saveCoupon() {
+    //create copy of state variable, modify the copy, send the copy back
+    let copy = [...allCoupons];
+    copy.push(coupon);
+
+    setAllCoupons(copy);
+
+    console.log(copy);
   }
 
   return (
@@ -25,10 +53,10 @@ function Admin() {
       <div className="parent">
         <section id="productsForm">
           <h3>Add Product</h3>
-          {/* <form className="newProds"> */}
+
           <div className="mb-3">
             <label className="form-label" htmlFor="title">
-              Title:{" "}
+              Title:
             </label>
             <input
               name="title"
@@ -85,11 +113,50 @@ function Admin() {
               Save Product
             </button>
           </div>
-          {/* </form> */}
+
+          <ul className="prod-list">
+            {allProducts.map((prod) => (
+              <li key={prod.title}>{prod.title}</li>
+            ))}
+          </ul>
         </section>
 
         <section id="secCoupons">
           <h3>Coupons</h3>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="code">
+              Coupon Code:
+            </label>
+            <input
+              name="code"
+              className="form-control"
+              type="text"
+              onBlur={handleCouponText}
+            ></input>
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="discount">
+              Discount:
+            </label>
+            <input
+              name="discount"
+              className="form-control"
+              type="text"
+              onBlur={handleCouponText}
+            ></input>
+          </div>
+
+          <div className="mb-3 text-center">
+            <button className="btn btn-dark" onClick={saveCoupon}>
+              Save Coupon
+            </button>
+          </div>
+
+          <ul className="coupon-list">
+            {allCoupons.map((coupon) => (
+              <li key={coupon.code}>{coupon.code}</li>
+            ))}
+          </ul>
         </section>
       </div>
     </div>
