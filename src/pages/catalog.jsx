@@ -19,7 +19,6 @@ const Catalog = () => {
     //get the product from the service
     let service = new DataService();
     let prods = service.getProducts();
-    console.log(prods);
     setProducts(prods);
 
     //calling function with all prods to display all when page loads

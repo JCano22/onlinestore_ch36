@@ -1,0 +1,15 @@
+.list-item{
+    border: 1px solid #cdcecf;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 5px 20px 10px 20px;
+    display: flex;
+}
+.list-item:hover{
+    border-color: rgb(229, 101, 14);
+    cursor: pointer;
+}
+.list-item h5{
+    flex: 1;
+    align-self: center;
+}

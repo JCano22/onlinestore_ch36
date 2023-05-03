@@ -20,8 +20,10 @@
     justify-content: center;
     
 }
-.homeCont h2{
-    margin-top: 30px;
-    margin-bottom: 0;
-    text-align: center;
+.homeCont h1{
+    font-size: 3rem;
+}
+.homeCont img{
+    z-index: 1;
+    filter: drop-shadow(10px 10px 5px #222);
 }

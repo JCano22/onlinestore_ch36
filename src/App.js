@@ -10,10 +10,12 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 // import QuantityPicker from './components/quantityPicker';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import GlobalState from './state/globalState';
 
 function App() {
   return (
     <div className="App">
+      <GlobalState>
       <BrowserRouter>
       <NavBar/>
 
@@ -30,6 +32,7 @@ function App() {
 
       <Footer />
       </BrowserRouter>
+      </GlobalState>
     </div>
   );
 }

@@ -5,3 +5,7 @@
 a{
     color: white !important;
 }
+.mainTitle{
+    font-weight: 600;
+    font-size: 2rem !important;
+}

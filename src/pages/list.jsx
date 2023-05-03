@@ -1,5 +1,7 @@
 import "./list.css";
 import { useState } from "react";
+import ListItems from "../components/listItems";
+import $ from "jquery";
 
 function List() {
   const [item, setItem] = useState({});
@@ -14,11 +16,23 @@ function List() {
     setItem(copy);
   }
 
+  function clearInput() {
+    $(".inputField").val("");
+  }
+
   function addItem() {
     console.log(item);
     let copy = [...allItems];
     copy.push(item);
+    clearInput();
+    setAllItems(copy);
+  }
 
+  function handleDelete(item) {
+    console.log("deleting" + item);
+
+    //filter function will keep elements with diff name of item.
+    let copy = allItems.filter((x) => x.name != item.name);
     setAllItems(copy);
   }
 
@@ -41,7 +55,7 @@ function List() {
 
         <div className="items-list">
           {allItems.map((list) => (
-            <h5 key={list.name}>{list.name}</h5>
+            <ListItems key={list.name} data={list} onDelete={handleDelete} />
           ))}
         </div>
       </div>

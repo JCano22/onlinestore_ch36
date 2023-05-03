@@ -1,12 +1,21 @@
 import "./home.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <div className="page homeCont">
+      <img
+        src="http://www.voguetavern.com/wp-content/uploads/2022/01/VogueTavern_Full.png"
+        alt="logo"
+        width="250"
+        height="250"
+      />
       <h1>Welcome</h1>
       <p>Here you will find the best food around!</p>
 
-      <h3>Check our amazing menu!</h3>
+      <Link to="/Catalog">
+        <button className="btn btn-lg">Check our amazing menu!</button>
+      </Link>
     </div>
   );
 }
