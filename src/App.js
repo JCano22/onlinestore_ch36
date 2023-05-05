@@ -6,6 +6,7 @@ import About from './pages/about';
 import Home from './pages/home';
 import Admin from './pages/admin';
 import List from './pages/list';
+import Cart from './pages/cart';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 // import QuantityPicker from './components/quantityPicker';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,6 +28,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/list' element={<List />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
       </div>
 

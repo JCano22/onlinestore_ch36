@@ -134,6 +134,7 @@ function Admin() {
               onBlur={handleCouponText}
             ></input>
           </div>
+
           <div className="mb-3">
             <label className="form-label" htmlFor="discount">
               Discount:

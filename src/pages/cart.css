@@ -1,0 +1,20 @@
+.cart{
+    padding: 10px;
+}
+.prod-cont{
+    margin: auto;
+    max-width: 320px;
+    min-height: 320px;
+
+}
+.prod-row{
+    border: 1px white solid;
+    margin: 10px;
+    width: 310px;
+    padding: 20px;
+    
+}
+.prod-row img{
+    width: 220px;
+    height: 190px;
+}

@@ -5,16 +5,25 @@ import { useState, useContext } from "react";
 
 function Product(props) {
   const [totalPrice, setTotalPrice] = useState(props.data.price.toFixed(2));
+  const [quantity, setQuantity] = useState("");
+  const cart = useContext(DataContext).cart;
 
   const globalAdd = useContext(DataContext).addProductToCart;
 
   const handleChange = (quantity) => {
+    setQuantity(quantity);
     const newTotal = quantity * props.data.price;
     setTotalPrice(newTotal.toFixed(2));
   };
 
   function handleAdd() {
-    console.log("adding" + props.data.title);
+    const existingProduct = cart.find((p) => p._id === props.data._id);
+
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      globalAdd({ ...props.data, quantity: quantity });
+    }
     globalAdd(props.data);
   }
 

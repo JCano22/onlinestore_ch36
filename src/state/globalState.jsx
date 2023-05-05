@@ -7,11 +7,29 @@ function GlobalState(props) {
   const [user, setUser] = useState([]);
 
   function addProductToCart(prod) {
-    let copy = [...cart, prod];
+    //find if item already exists in cart
+    let found = false;
+
+    //map each item in the array,  if _id matches increase counter
+    let copy = cart.map((p) => {
+      if (p._id === prod._id) {
+        found = true;
+        return { ...prod, quantity: p.quantity + 1 };
+      }
+      return p;
+    });
+    if (!found) {
+      copy.push({ ...prod, quantity: 1 });
+    }
+
     setCart(copy);
   }
 
-  function removeProductFromCart() {}
+  function removeProductFromCart(_id) {
+    const updateCart = cart.filter((product) => product._id !== _id);
+    setCart(updateCart);
+    console.log(updateCart);
+  }
 
   return (
     <DataContext.Provider
@@ -20,8 +38,8 @@ function GlobalState(props) {
         itemList: itemList,
         user: user,
 
-        addProductToCart: addProductToCart,
-        removeProductFromCart: removeProductFromCart,
+        addProductToCart,
+        removeProductFromCart,
       }}
     >
       {props.children}
