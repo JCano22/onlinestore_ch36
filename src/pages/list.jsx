@@ -21,7 +21,6 @@ function List() {
   }
 
   function addItem() {
-    console.log(item);
     let copy = [...allItems];
     copy.push(item);
     clearInput();

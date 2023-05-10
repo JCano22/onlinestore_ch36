@@ -1,0 +1,15 @@
+.mapCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mapCont .aboutDescript{
+    width: 400px;
+    text-align: center;
+    align-self: center;
+}
+.map{
+    width: 400px;
+    border: 10px solid rgb(229, 101, 14);
+    
+}

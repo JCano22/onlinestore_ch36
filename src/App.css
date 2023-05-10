@@ -46,12 +46,13 @@
 }
 
 .container-fluid{
-  min-height: calc(100vh - 116px);
+  min-height: calc(100vh - 137px);
   padding: 0 !important;
 }
 
 .page{
-  min-height: calc(100vh - 116px);
+  min-height: calc(100vh - 137px);
   color: white;
   background-color: black !important;
+  padding: 20px 0;
 }

@@ -1,5 +1,6 @@
+import DataService from "../services/dataService";
 import "./admin.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Admin() {
   const [product, setProduct] = useState({});
@@ -7,6 +8,22 @@ function Admin() {
   const [coupon, setCoupon] = useState({});
   const [allCoupons, setAllCoupons] = useState([]);
 
+  useEffect(function () {
+    loadProducts();
+    loadCoupons();
+  }, []);
+
+  async function loadProducts() {
+    let service = new DataService();
+    let prods = await service.getProducts();
+    setAllProducts(prods);
+  }
+
+  async function loadCoupons() {
+    let service = new DataService();
+    let coupons = await service.getCoupons();
+    setAllCoupons(coupons);
+  }
   function handleProductText(e) {
     const text = e.target.value;
     const name = e.target.name;
@@ -15,11 +32,13 @@ function Admin() {
     let copy = { ...product };
     copy[name] = text;
     setProduct(copy);
-
-    console.log(text, name);
   }
 
   function saveProduct() {
+    let service = new DataService();
+    let prodToSave = { ...product };
+    prodToSave.price = parseFloat(prodToSave.price);
+    service.saveProduct(prodToSave);
     //create copy of state variable, modify the copy, send the copy back
     let copy = [...allProducts];
     copy.push(product);
@@ -39,6 +58,11 @@ function Admin() {
     console.log(code, name);
   }
   function saveCoupon() {
+    let service = new DataService();
+    let coupToSave = { ...coupon };
+    coupToSave.discount = parseFloat(coupToSave.discount);
+    service.saveCoupon(coupToSave);
+
     //create copy of state variable, modify the copy, send the copy back
     let copy = [...allCoupons];
     copy.push(coupon);
@@ -46,6 +70,18 @@ function Admin() {
     setAllCoupons(copy);
 
     console.log(copy);
+  }
+
+  function deleteCoupon(code) {
+    /*call a deleteCoupon function on the service and pass the code
+    the service should call a DLETE request to /api/coupons/<code>
+    , on the server create the DELETE endpoint that catches the code from the URL and use it to delete a record from the database
+    */
+    let service = new DataService();
+    service.deleteCoupon(code);
+
+    let copy = allCoupons.filter((c) => c.code != code);
+    setAllCoupons(copy);
   }
 
   return (
@@ -155,7 +191,15 @@ function Admin() {
 
           <ul className="coupon-list">
             {allCoupons.map((coupon) => (
-              <li key={coupon.code}>{coupon.code}</li>
+              <li key={coupon.code}>
+                {coupon.code}
+                <button
+                  onClick={() => deleteCoupon(coupon.code)}
+                  className="btn btn-sm"
+                >
+                  Delete
+                </button>
+              </li>
             ))}
           </ul>
         </section>

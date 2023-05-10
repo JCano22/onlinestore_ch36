@@ -1,5 +1,5 @@
 .adminCont{
-    padding-top: 20px;
+    padding: 20px 0;
 
 
 }
@@ -12,17 +12,19 @@
     text-align: left;
     padding: 20px 30px;
     border: 1px solid white;
-    box-shadow: -5px 5px rgb(229, 101, 14);;
+    box-shadow: -5px 5px rgb(229, 101, 14);
     border-radius: 4px;
     max-width: 400px;
+    height: 100%;
 
 }
 .adminCont #productsForm{
     flex: auto;
 
 }
-.admin #secCoupons{
+.adminCont #secCoupons{
     flex:auto;
+    height: 100%;
 }
 
 select option{

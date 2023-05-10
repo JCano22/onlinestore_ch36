@@ -15,16 +15,16 @@ const Catalog = () => {
     loadCatalog();
   }, []);
 
-  function loadCatalog() {
+  async function loadCatalog() {
     //get the product from the service
     let service = new DataService();
-    let prods = service.getProducts();
-    setProducts(prods);
 
+    let prods = await service.getProducts();
+    setProducts(prods);
     //calling function with all prods to display all when page loads
     setProdsToDisplay(prods);
 
-    let cats = ["Appetizers", "Dogs", "Burgers", "Entrees"];
+    let cats = await service.getCategories();
     setCategory(cats);
   }
 
