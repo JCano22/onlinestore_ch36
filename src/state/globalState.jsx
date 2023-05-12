@@ -14,7 +14,7 @@ function GlobalState(props) {
     let copy = cart.map((p) => {
       if (p._id === prod._id) {
         found = true;
-        return { ...prod, quantity: p.quantity + 1 };
+        return { ...prod, quantity: p.quantity };
       }
       return p;
     });

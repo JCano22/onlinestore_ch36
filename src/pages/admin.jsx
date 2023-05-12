@@ -41,10 +41,18 @@ function Admin() {
     service.saveProduct(prodToSave);
     //create copy of state variable, modify the copy, send the copy back
     let copy = [...allProducts];
-    copy.push(product);
+    copy.push(prodToSave);
     setAllProducts(copy);
 
     console.log(copy);
+  }
+
+  function deleteProduct(_id) {
+    let service = new DataService();
+    service.deleteProductById(_id);
+
+    let copy = allProducts.filter((c) => c._id !== _id);
+    setAllProducts(copy);
   }
 
   function handleCouponText(e) {
@@ -65,9 +73,12 @@ function Admin() {
 
     //create copy of state variable, modify the copy, send the copy back
     let copy = [...allCoupons];
-    copy.push(coupon);
+    copy.push(coupToSave);
 
     setAllCoupons(copy);
+
+    document.getElementsByName("code")[0].value = "";
+    document.getElementsByName("discount")[0].value = "";
 
     console.log(copy);
   }
@@ -152,7 +163,17 @@ function Admin() {
 
           <ul className="prod-list">
             {allProducts.map((prod) => (
-              <li key={prod.title}>{prod.title}</li>
+              <span>
+                <li key={prod.title}>
+                  {prod.title}
+                  <button
+                    onClick={() => deleteProduct(prod._id)}
+                    className="btn btn-sm"
+                  >
+                    Delete
+                  </button>
+                </li>
+              </span>
             ))}
           </ul>
         </section>

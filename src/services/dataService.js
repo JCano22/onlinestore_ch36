@@ -120,7 +120,6 @@ class DataService{
     serverURL = "http://127.0.0.1:5000";
 
     async getProducts(){
-        
         //use this return to run FE without BE
         // return catalog;
 
@@ -129,7 +128,6 @@ class DataService{
 
         //data is an axio keyword
         return results.data;
-
     }
 
     async getCategories(){
@@ -156,6 +154,16 @@ class DataService{
         let results = await axios.delete(this.serverURL + "/api/coupons/" + coup);
         return results.data;
 
+    }
+
+    async deleteProducts(title){
+        let results = await axios.delete(this.serverURL + "/api/catalog/" + title);
+        return results.data
+    }
+
+    async deleteProductById(id){
+        let results = await axios.delete(this.serverURL + "/api/catalog/byid/" + id);
+        return results.data
     }
 
 }
