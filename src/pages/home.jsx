@@ -11,7 +11,7 @@ function Home() {
         height="250"
       />
       <h1>Welcome</h1>
-      <p>Here you will find the best food around!</p>
+      <p>Come down for the best beer and food around!</p>
 
       <Link to="/Catalog">
         <button className="btn btn-lg">Check our amazing menu!</button>

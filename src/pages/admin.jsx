@@ -44,6 +44,11 @@ function Admin() {
     copy.push(prodToSave);
     setAllProducts(copy);
 
+    document.getElementsByName("title")[0].value = "";
+    document.getElementsByName("price")[0].value = "";
+    document.getElementsByName("category")[0].value = "";
+    document.getElementsByName("image")[0].value = "";
+
     console.log(copy);
   }
 
@@ -62,9 +67,8 @@ function Admin() {
     let copy = { ...coupon };
     copy[name] = code;
     setCoupon(copy);
-
-    console.log(code, name);
   }
+
   function saveCoupon() {
     let service = new DataService();
     let coupToSave = { ...coupon };

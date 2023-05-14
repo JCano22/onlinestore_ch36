@@ -36,11 +36,10 @@ function MapComponent() {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={15}
+      zoom={9}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* Child components, such as markers, info windows, etc. */}
       <></>
     </GoogleMap>
   ) : (
